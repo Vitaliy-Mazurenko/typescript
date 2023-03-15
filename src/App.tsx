@@ -1,5 +1,4 @@
 import React from 'react';
-import Table from './components/Table/Table';
 import Home from './components/Home/Home';
 
 const App: React.FC = () => (
