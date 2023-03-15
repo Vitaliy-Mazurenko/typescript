@@ -7,8 +7,8 @@ const App: React.FC = () => (
   <div className="App" data-testid="App">
     <Router basename="/https://Vitaliy-Mazurenko.github.io/typescript/">
       <Routes>
+        <Route path="/" element={<Home />} />
         <Route path="/table" element={<Table />} />
-        <Route exact path="/" element={<Home />} />
       </Routes>
     </Router>
   </div>
