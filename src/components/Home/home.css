@@ -1,0 +1,46 @@
+.home {
+  text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+}
+
+.homeForm {
+  padding-bottom: 10%;
+  width: 100%;
+  margin: auto;
+}
+
+.homeForm input {
+  display: flex;
+  flex-direction: column;
+  height: 30px;
+  width: 100%;
+  margin-top: 8px;
+  text-align: center;
+  font-size: 17px;
+}
+
+.homeForm input:focus-visible {
+  outline-color: lightblue;
+}
+
+.homeForm > label {
+  margin-right: 90%;
+}
+
+.buttonAdd {
+  margin: 8px auto;
+  padding: 10px 20px;
+  color: #fff;
+  background-color: #3f51b5;
+  border-color: transparent;
+  cursor: pointer;
+  border-radius: 3px;
+  font-size: 16px;
+}
+
+.buttonAdd:hover {
+  background-color: #303f9f;
+}
