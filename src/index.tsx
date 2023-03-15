@@ -2,7 +2,6 @@ import React from 'react';
 import ReactDOM from 'react-dom/client';
 import { BrowserRouter as Router } from 'react-router-dom';
 import './index.css';
-import { PUBLIC_URL } from './constants';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
 
@@ -11,7 +10,7 @@ const root = ReactDOM.createRoot(
 );
 root.render(
   <React.StrictMode>
-    <Router basename= {PUBLIC_URL}>
+    <Router basename= {process.env.PUBLIC_URL || '/'}>
       <App />
     </Router>
   </React.StrictMode>,
