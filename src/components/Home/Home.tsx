@@ -8,7 +8,7 @@ const Home: React.FC = () => {
   const [init, setInit] = useState<initData>({
     columns: 5,
     rows: 5,
-    near: 5
+    near: 5,
   });
 
   const handleChange: React.ChangeEventHandler<HTMLInputElement> = () => {
