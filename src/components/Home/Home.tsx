@@ -29,11 +29,8 @@ const Home: React.FC = () => {
     if ((init.columns > 0 && init.columns < 100) && init.rows > 0 && init.near > 0) {
       navigate('/table');
       setInit(init);
-      console.log(init.columns);
       setError('');
     } else {
-      console.warn('value <= 0');
-      console.log(init);
       setError('enter value > 0');
     }
   };
