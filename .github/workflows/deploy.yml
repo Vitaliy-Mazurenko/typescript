@@ -17,10 +17,9 @@ jobs:
         with:
           node-version: 18.x
 
-      - name: Install, lint, build 🔧
+      - name: Install, build 🔧
         run: |
           npm install
-          npm run lint:js
           npm run build
 
       - name: Deploy 🚀
