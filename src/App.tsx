@@ -5,7 +5,7 @@ import Home from './components/Home/Home';
 
 const App: React.FC = () => (
   <div className="App" data-testid="App">
-        <Home />
+    <Home />
   </div>
 );
 
