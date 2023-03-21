@@ -35,7 +35,7 @@
     },
     "rules": {
 	    "no-empty-function": "off",
-        "@typescript-eslint/no-empty-function": "error"
+        "@typescript-eslint/no-empty-function": "error",
         "no-shadow": "off",
         "react/jsx-filename-extension": [2, { "extensions": [ ".tsx" ] }],
         "import/prefer-default-export": "off",
