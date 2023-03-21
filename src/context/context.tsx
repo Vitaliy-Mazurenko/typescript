@@ -16,8 +16,8 @@ export const Context = createContext<IInitialContext>({
   columns: 5,
   near: 5,
   cells: [],
-  setRows: () => {/**/},
-  setColumns: () => {/**/},
-  setNear: () => {/**/},
-  setCells: () => {/**/},
+  setRows: () => { /**/ },
+  setColumns: () => { /**/ },
+  setNear: () => { /**/ },
+  setCells: () => { /**/ },
 });
