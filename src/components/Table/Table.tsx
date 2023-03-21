@@ -1,9 +1,13 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import './table.css';
 import { useNavigate } from 'react-router-dom';
+import { Context } from '../../context/context';
 
 const Table: React.FC = () => {
   const navigate = useNavigate();
+  const {
+    rows, columns, near,
+  } = useContext(Context);
 
   return (
     <div className="table-wrap">
@@ -14,7 +18,9 @@ const Table: React.FC = () => {
         <table className="Mtable" aria-label="simple table">
           <tbody>
             <tr>
-              <td>Cell</td>
+              <td>{rows}</td>
+              <td>{columns}</td>
+              <td>{near}</td>
             </tr>
           </tbody>
           <tfoot />
