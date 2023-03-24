@@ -1,14 +1,15 @@
 import { createContext } from 'react';
+import type { IObjType } from '../helpers/average';
 
 interface IInitialContext {
   rows: number;
   columns: number;
   near: number;
-  cells: number[] | string[];
+  cells: IObjType[];
   setRows: (arg: number) => void;
   setColumns: (arg: number) => void;
   setNear: (arg: number) => void;
-  setCells: (arg: number[] | string[]) => void;
+  setCells: (arg: IObjType[]) => void;
 }
 
 export const Context = createContext<IInitialContext>({

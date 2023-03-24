@@ -3,12 +3,13 @@ import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import Table from './components/Table/Table';
 import Home from './components/Home/Home';
 import { Context } from './context/context';
+import type { IObjType } from './helpers/average';
 
 const App: React.FC = () => {
   const [rows, setTableRows] = useState<number>(0);
   const [columns, setTableColumns] = useState<number>(0);
   const [near, setTableNear] = useState<number>(0);
-  const [cells, setTableCells] = useState<number[] | string[]>([]);
+  const [cells, setTableCells] = useState<IObjType[]>([]);
 
   const setRows = (data: number) => {
     setTableRows(data);
@@ -22,7 +23,7 @@ const App: React.FC = () => {
     setTableNear(data);
   };
 
-  const setCells = (data: number[] | string[]) => {
+  const setCells = (data: IObjType[]) => {
     setTableCells(data);
   };
 
