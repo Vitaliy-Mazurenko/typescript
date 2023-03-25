@@ -1,9 +1,9 @@
-/* eslint-disable react/no-array-index-key */
 import React, { useContext, useState, useCallback } from 'react';
 import './table.css';
 import { useNavigate } from 'react-router-dom';
 import { Context } from '../../context/context';
 import Rows from './Rows';
+import Footer from './Footer';
 
 const Table: React.FC = () => {
   const navigate = useNavigate();
@@ -28,14 +28,14 @@ const Table: React.FC = () => {
   return (
     <div className="table-wrap">
       <span id="goBack-btn">
-        <button type="button" onClick={() => navigate('/')}>Back</button>
+        <button type="button" className="primary" onClick={() => navigate('/')}>Back</button>
       </span>
-      <span>
+      <div>
         <table className="Mtable" aria-label="simple table">
           <tbody>
             {[...cells.slice(0, -1)].map((cell, i) => (
               <Rows
-                key={i}
+                key={`${i.toString()}`}
                 activOn={() => activOn}
                 activOff={activOff}
                 nearest={nearest}
@@ -45,11 +45,11 @@ const Table: React.FC = () => {
               />
             ))}
           </tbody>
-          {/* <tfoot>
-            {[...cells.slice(-1)].map((cell, i) => <Footer key={i} cell={cell} />)}
-          </tfoot> */}
+          <tfoot>
+            {[...cells.slice(-1)].map((cell, i) => <Footer key={`${i.toString()}`} cell={cell} />)}
+          </tfoot>
         </table>
-      </span>
+      </div>
     </div>
   );
 };

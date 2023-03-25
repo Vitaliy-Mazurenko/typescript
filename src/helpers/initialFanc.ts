@@ -1,5 +1,5 @@
 import { average } from './average';
-import type { IObjType } from './average';
+import type IObjType from '../types/initData';
 
 const min = 100;
 const max = 999;

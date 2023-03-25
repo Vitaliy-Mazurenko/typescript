@@ -3,7 +3,7 @@ import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import Table from './components/Table/Table';
 import Home from './components/Home/Home';
 import { Context } from './context/context';
-import type { IObjType } from './helpers/average';
+import type IObjType from './types/initData';
 
 const App: React.FC = () => {
   const [rows, setTableRows] = useState<number>(0);

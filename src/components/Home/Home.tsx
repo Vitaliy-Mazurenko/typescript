@@ -2,10 +2,11 @@ import React, { useState, useContext } from 'react';
 import './home.css';
 import { useNavigate } from 'react-router-dom';
 import { Context } from '../../context/context';
+import { initialFanc } from '../../helpers/initialFanc';
 
 const Home: React.FC = () => {
   const {
-    rows, columns, near, setRows, setColumns, setNear,
+    rows, columns, near, setRows, setColumns, setNear, setCells,
   } = useContext(Context);
   const [initColumns, setInitColumns] = useState<number>(columns);
   const [initRows, setInitRows] = useState<number>(rows);
@@ -22,6 +23,8 @@ const Home: React.FC = () => {
       setColumns(initColumns);
       setRows(initRows);
       setNear(initNear);
+      const initFn = () => initialFanc(initRows, initColumns);
+      setCells(initFn());
       setError(null);
     } else {
       setError('range from 0 to 100');

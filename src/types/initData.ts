@@ -1,5 +1,3 @@
-export default interface InitValues {
-  columns: number,
-  rows: number,
-  near: number,
+export default interface IObjType {
+  [index: string | number]: number
 }

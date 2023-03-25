@@ -38,7 +38,7 @@ const Cells: React.FC<childrenProps> = ({
   return (
     Array.from({ length: columns }).map((_item, index) => (
       <td
-        key={i}
+        key={`${i}${index.toString()}`}
         id={`${i}c${index}`}
         className={(classNameActiv(cells, index)) ? (activ) : ''}
             // onClick={(e) => incr(e.target.id)}

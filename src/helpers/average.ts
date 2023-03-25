@@ -1,6 +1,4 @@
-export interface IObjType {
-  [index: string | number]:number
-}
+import type IObjType from '../types/initData';
 
 export const average = (cells: IObjType[]) => {
   const average: IObjType = {};

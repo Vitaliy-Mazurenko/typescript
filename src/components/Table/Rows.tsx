@@ -2,7 +2,7 @@ import React, { useState, useContext } from 'react';
 import Cells from './Cells';
 import { Context } from '../../context/context';
 import { average } from '../../helpers/average';
-import type { IObjType } from '../../helpers/average';
+import type IObjType from '../../types/initData';
 
 interface Props {
   activOn: () => void,
@@ -22,11 +22,9 @@ const Rows: React.FunctionComponent<Props> = ({
   const [percent, setPercent] = useState('');
 
   const onDelete = (id: string) => {
-    // eslint-disable-next-line @typescript-eslint/no-explicit-any
-    let newCells: any[] = [
+    let newCells: IObjType[] = [
       ...cells.slice(0, +id), ...cells.slice(+id + 1),
     ];
-    // console.log(newCells);
     newCells = [...newCells.slice(0, -1)];
 
     const averageCells: IObjType = average(newCells);
@@ -56,10 +54,10 @@ const Rows: React.FunctionComponent<Props> = ({
     }
     incrRows(incrCells);
 
-    // eslint-disable-next-line @typescript-eslint/no-explicit-any
-    let newCells: any[] = [
+    let newCells: IObjType[] = [
       ...cells.slice(0, +id), incrItems, ...cells.slice(+id + 1),
     ];
+    // console.log(newCells);
     newCells = [...newCells.slice(0, -1)];
 
     const averageCells: IObjType = average(newCells);
@@ -109,7 +107,7 @@ const Rows: React.FunctionComponent<Props> = ({
       <td className="tableEnd">
         <button
           type="button"
-          color="secondary"
+          className="secondary"
           id={i}
           onClick={() => onDelete(i)}
         >
