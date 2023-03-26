@@ -2,7 +2,7 @@ import React, { useContext, useCallback } from 'react';
 import { Context } from '../../context/context';
 
 interface childrenProps {
-  incr: (text: string) => void,
+  incr: (text: React.MouseEvent<HTMLElement>) => void,
   activOn: () => void,
   activOff: () => void,
   nearest: string | null,
@@ -13,7 +13,7 @@ interface childrenProps {
 }
 // incr, activOn, activOff, nearest, activ, percent, cell, i,
 const Cells: React.FC<childrenProps> = ({
-  activOn, activOff, nearest, activ, cell, i,
+  incr, activOn, activOff, nearest, activ, cell, i,
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
 }): JSX.Element | any => {
   const {
@@ -37,13 +37,16 @@ const Cells: React.FC<childrenProps> = ({
 
   return (
     Array.from({ length: columns }).map((_item, index) => (
+      // eslint-disable-next-line jsx-a11y/no-noninteractive-element-interactions
       <td
         key={`${i}${index.toString()}`}
         id={`${i}c${index}`}
         className={(classNameActiv(cells, index)) ? (activ) : ''}
-            // onClick={(e) => incr(e.target.id)}
+        onClick={(e: React.MouseEvent<HTMLElement>) => incr(e)}
+        // onKeyPress={(e: any) => incr(e)}
         onMouseEnter={() => activOn}
         onMouseLeave={activOff}
+        role="presentation"
       >
         {cellVal[index]}
       </td>

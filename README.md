@@ -1,5 +1,8 @@
 # typescript
 
+Deploy production:
+[Create React App](https://vitaliy-mazurenko.github.io/typescript/).
+
 typescript + react
 
 ```
