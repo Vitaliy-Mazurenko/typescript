@@ -1,9 +1,11 @@
 import React, { useContext, useCallback } from 'react';
 import { Context } from '../../context/context';
+import Cell from './Cell';
+import CellPercent from './CellPercent';
 
 interface childrenProps {
   incr: (text: React.MouseEvent<HTMLElement>) => void,
-  activOn: () => void,
+  activOn: (e: React.MouseEvent<HTMLElement>) => void,
   activOff: () => void,
   nearest: string | null,
   activ: string,
@@ -11,18 +13,16 @@ interface childrenProps {
   cell: object,
   i: string | undefined,
 }
-// incr, activOn, activOff, nearest, activ, percent, cell, i,
-const Cells: React.FC<childrenProps> = ({
-  incr, activOn, activOff, nearest, activ, cell, i,
-// eslint-disable-next-line @typescript-eslint/no-explicit-any
-}): JSX.Element | any => {
-  const {
-    columns, near, cells,
-  } = useContext(Context);
+
+const Cells = ({
+  incr, activOn, activOff, nearest, activ, percent, cell, i,
+
+}: childrenProps) => {
+  const { columns, near, cells } = useContext(Context);
 
   const cellVal = Object.values(cell);
-  // const result = cellVal.reduce((sum, elem) => sum + elem, 0);
-  // console.log(result);
+  const result = cellVal.reduce((sum, elem) => sum + elem, 0);
+
   const classNameActiv = useCallback((cells: object[], index: number) => {
     const flatenned = [];
     if (cells[0]) {
@@ -36,21 +36,33 @@ const Cells: React.FC<childrenProps> = ({
   }, [cellVal, near, nearest]);
 
   return (
-    Array.from({ length: columns }).map((_item, index) => (
-      // eslint-disable-next-line jsx-a11y/no-noninteractive-element-interactions
-      <td
-        key={`${i}${index.toString()}`}
-        id={`${i}c${index}`}
-        className={(classNameActiv(cells, index)) ? (activ) : ''}
-        onClick={(e: React.MouseEvent<HTMLElement>) => incr(e)}
-        // onKeyPress={(e: any) => incr(e)}
-        onMouseEnter={() => activOn}
-        onMouseLeave={activOff}
-        role="presentation"
-      >
-        {cellVal[index]}
-      </td>
-    ))
+    <>
+      {
+    Array.from({ length: columns }).map((item, index) => {
+      const transparent = Math.round((cellVal[index] / result) * 100);
+      const isPercent = percent === `${i}r`;
+      return (
+        (isPercent) ? (
+          <CellPercent
+            key={`${i}${index.toString()}`}
+            id={`${i}c${index}`}
+            transparent={transparent}
+          />
+        ) : (
+          <Cell
+            key={`${i}${index.toString()}`}
+            incr={incr}
+            activOn={activOn}
+            activOff={activOff}
+            id={`${i}c${index}`}
+            className={(classNameActiv(cells, index)) ? (activ) : ''}
+            cellValue={cellVal[index]}
+          />
+        )
+      );
+    })
+    }
+    </>
   );
 };
 
