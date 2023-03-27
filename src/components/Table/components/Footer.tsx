@@ -1,7 +1,7 @@
 import React, { useContext } from 'react';
-import { Context } from '../../context/context';
-import { average } from '../../helpers/average';
-import type IObjType from '../../types/initData';
+import { Context } from '../../../context/context';
+import { average } from '../../../helpers/average';
+import type IObjType from '../../../types/initData';
 
 const min = 100;
 const max = 999;

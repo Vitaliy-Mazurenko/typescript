@@ -1,8 +1,8 @@
 import React, { useState, useContext } from 'react';
 import Cells from './Cells';
-import { Context } from '../../context/context';
-import { average } from '../../helpers/average';
-import type IObjType from '../../types/initData';
+import { Context } from '../../../context/context';
+import { average } from '../../../helpers/average';
+import type IObjType from '../../../types/initData';
 
 interface Props {
   activOn: (e: React.MouseEvent<HTMLElement>) => void,
@@ -35,8 +35,8 @@ const Rows = ({
     if (!(e.target instanceof HTMLElement)) return;
     const target = e.target as HTMLElement;
     const text: string = target.id;
-    const id = text.split('c')[0];
-    const incrId = +text.split('c')[1];
+    const id = text.split('.')[0];
+    const incrId = +text.split('.')[1];
     const incrCells = [
       ...cells.slice(+id, +id + 1),
     ];

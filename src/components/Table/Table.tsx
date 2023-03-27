@@ -2,8 +2,8 @@ import React, { useContext, useState, useCallback } from 'react';
 import './table.css';
 import { useNavigate } from 'react-router-dom';
 import { Context } from '../../context/context';
-import Footer from './Footer';
-import Rows from './Rows';
+import Footer from './components/Footer';
+import Rows from './components/Rows';
 
 const Table: React.FC = () => {
   const navigate = useNavigate();

@@ -1,5 +1,5 @@
 import React, { useContext, useCallback } from 'react';
-import { Context } from '../../context/context';
+import { Context } from '../../../context/context';
 import Cell from './Cell';
 import CellPercent from './CellPercent';
 
@@ -45,7 +45,8 @@ const Cells = ({
         (isPercent) ? (
           <CellPercent
             key={`${i}${index.toString()}`}
-            id={`${i}c${index}`}
+            id={`${i}.${index}`}
+            index={index}
             transparent={transparent}
           />
         ) : (
@@ -54,7 +55,7 @@ const Cells = ({
             incr={incr}
             activOn={activOn}
             activOff={activOff}
-            id={`${i}c${index}`}
+            id={`${i}.${index}`}
             className={(classNameActiv(cells, index)) ? (activ) : ''}
             cellValue={cellVal[index]}
           />

@@ -9,7 +9,7 @@ export const average = (cells: IObjType[]) => {
       for (let j = 0; j < cells.length; j += 1) {
         sum += cells[j][i];
       }
-      average[i] = Math.round(sum / cells.length);
+      average[i] = Math.round((sum / cells.length) * 10) / 10;
     }
   }
   return average;
